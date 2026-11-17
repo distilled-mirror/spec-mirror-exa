@@ -3602,7 +3602,7 @@
       "post": {
         "operationId": "websets-preview",
         "summary": "Preview a webset",
-        "description": "Returns how a search query will be interpreted before you create a Webset, including the detected entity, generated criteria, and suggested enrichments.",
+        "description": "Returns how a search query will be interpreted before you create a Webset, including the detected entity and generated criteria.",
         "tags": [
           "Websets Preview"
         ],
@@ -5856,7 +5856,7 @@
                 "type": "integer",
                 "minimum": -1,
                 "maximum": 720,
-                "description": "Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, cached content is used when available and pages without it are fetched live."
+                "description": "Maximum age of cached content, in hours, up to 720. Cached content younger than this is used, and older pages are fetched fresh. A failed fetch may return the latest cached copy instead. `0` returns live content, fetched within the last 60 seconds. `-1` always uses the cache. When omitted, only cached content is used unless `livecrawl` is set."
               },
               {
                 "type": "null"
