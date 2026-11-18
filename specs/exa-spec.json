@@ -14466,6 +14466,44 @@
             "description": "Recall metrics for the search, null if not yet computed or requested.",
             "nullable": true
           },
+          "costDollars": {
+            "properties": {
+              "total": {
+                "minimum": 0,
+                "description": "Total cost of the search in dollars, including the emails and phone numbers found for its items.",
+                "type": "number"
+              },
+              "agentCompute": {
+                "minimum": 0,
+                "description": "Cost of the model usage the search needed, in dollars.",
+                "type": "number"
+              },
+              "search": {
+                "minimum": 0,
+                "description": "Cost of the Exa searches the search ran, in dollars.",
+                "type": "number"
+              },
+              "emails": {
+                "minimum": 0,
+                "description": "Cost of the emails that enrichments found for the items the search added, in dollars.",
+                "type": "number"
+              },
+              "phoneNumbers": {
+                "minimum": 0,
+                "description": "Cost of the phone numbers that enrichments found for the items the search added, in dollars.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "total",
+              "agentCompute",
+              "search",
+              "emails",
+              "phoneNumbers"
+            ],
+            "description": "What the search cost, in dollars. Returned once the search has finished, for teams on the pay-as-you-go plan, which is charged for what each search uses. Omitted for teams on other plans. `emails`, `phoneNumbers` and `total` keep growing after the search has finished, as enrichments find contact details for its items. They are final once the Webset's status is `idle`, and grow again if an enrichment is added or changed. This response value is not an invoice record.",
+            "type": "object"
+          },
           "metadata": {
             "default": {},
             "description": "Set of key-value pairs you want to associate with this object.",
